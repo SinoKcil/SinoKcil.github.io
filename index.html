@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SinoKcil</title>
+<meta name="description" content="SinoKcil 的个人主页 — 游戏与创作">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #8a8a8a;
+    --line: #d9d9d9;
+    --bg: #fafafa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8e8e8;
+      --ink-soft: #777;
+      --line: #333;
+      --bg: #111;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Georgia", "Songti SC", "SimSun", serif;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8vw;
+  }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+  .line {
+    width: 64px;
+    height: 1px;
+    background: var(--ink);
+    margin: 1.6rem 0;
+  }
+  p {
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.9;
+    max-width: 32em;
+  }
+  p + p { margin-top: 0.4rem; }
+  .soon {
+    margin-top: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+  .soon::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--ink-soft);
+    border-radius: 50%;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  footer {
+    padding: 1.6rem 8vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <h1>SinoKcil</h1>
+  <div class="line"></div>
+  <p>在纸上画线，在代码里造世界。</p>
+  <p>这里将收录我的游戏与创作。</p>
+  <span class="soon">GAME — 正在制作中</span>
+</main>
+<footer>
+  <span>© 2026 SinoKcil</span>
+  <a href="https://github.com/SinoKcil">GitHub</a>
+</footer>
+</body>
+</html>
