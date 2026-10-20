@@ -54,12 +54,9 @@
     <rect x="47" y="21" width="1" height="2"/>
   </g>
 
-  <!-- ===== 对阵:中间 VS 分界 ===== -->
+  <!-- ===== 对阵:中间分界 ===== -->
   <g fill="#8A6B4A" opacity="0.35">
     <rect x="57" y="8" width="1" height="24"/>
-  </g>
-  <g fill="#A08156" font-family="monospace" font-size="5">
-    <text x="56" y="14" text-anchor="middle">VS</text>
   </g>
 
   <!-- ===== 右侧:四大天王 + 魔王 ===== -->

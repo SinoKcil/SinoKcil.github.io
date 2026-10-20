@@ -4,12 +4,156 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>关于 — SinoKcil</title>
+<meta name="description" content="关于 SinoKcil">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #8a8a8a;
+    --line: #d9d9d9;
+    --bg: #fafafa;
+    --brown: #5C4025;
+    --brown-soft: #8A6B4A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8e8e8;
+      --ink-soft: #777;
+      --line: #333;
+      --bg: #111;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Georgia", "Songti SC", "SimSun", serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    width: min(760px, 92vw);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+    position: relative;
+  }
+  .lyric {
+    position: absolute;
+    top: -0.6rem; right: 0;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    font-style: italic;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+  }
+  .crumb {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .crumb a { color: inherit; text-decoration: none; }
+  .crumb a:hover { color: var(--ink); }
+  .bio {
+    margin-top: 2.6rem;
+    font-size: 1rem;
+    line-height: 2.1;
+    color: var(--ink);
+  }
+  .section {
+    margin-top: 3rem;
+    padding-top: 1.6rem;
+    border-top: 1px dashed var(--line);
+  }
+  .section h2 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--brown);
+    margin-bottom: 1rem;
+  }
+  .section ul {
+    list-style: none;
+    font-size: 0.95rem;
+    line-height: 2.2;
+    color: var(--ink);
+  }
+  .section ul li::before {
+    content: "· ";
+    color: var(--brown-soft);
+  }
+  .section .note {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+  footer {
+    padding: 1.6rem 8vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  footer a:hover { color: var(--ink); }
+  @media (max-width: 560px) {
+    .lyric { position: static; display: block; margin-bottom: 1.4rem; }
+  }
+</style>
 </head>
 <body>
 <main>
+  <span class="lyric">“如果我本不同,为何两手空空”</span>
   <h1>关于</h1>
-  <p>我是 SinoKcil,喜欢做游戏。</p>
-  <p><a href="index.html">← 返回主页</a></p>
+  <div class="crumb"><a href="index.html">主页</a> / 关于</div>
+
+  <p class="bio">
+    Kcil<br>
+    曾经或许是忧郁少女,后来进化成了大千世界的一粒尘埃。
+  </p>
+
+  <div class="section">
+    <h2>喜欢的游戏</h2>
+    <ul>
+      <li>《蓝宝石般的被害妄想少女》</li>
+      <li>《明日方舟》(现在是忠实的卫P)</li>
+      <li>《阴阳师·百闻牌》</li>
+    </ul>
+    <p class="note">动作苦手。</p>
+  </div>
+
+  <div class="section">
+    <h2>喜欢的音乐</h2>
+    <ul>
+      <li>《喜欢》 — 张悬</li>
+      <li>《Merry Christmas, Mr. Lawrence》 — 坂本龙一</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>喜欢的角色</h2>
+    <ul>
+      <li>羽毛笔</li>
+      <li>晓美焰</li>
+      <li>七海千秋</li>
+    </ul>
+  </div>
 </main>
+<footer>
+  <span>© 2026 SinoKcil</span>
+  <a href="https://github.com/SinoKcil">GitHub</a>
+</footer>
 </body>
 </html>

@@ -83,7 +83,21 @@
     color: var(--ink-soft);
     max-width: 34em;
   }
-  .tags { margin-top: 0.9rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .card-actions { margin-top: 0.9rem; display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+  .btn {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--brown-soft);
+    background: none;
+    border: 1px solid var(--brown-soft);
+    padding: 4px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .btn:hover { color: var(--brown); border-color: var(--brown); }
+  .tags { display: flex; gap: 0.6rem; flex-wrap: wrap; }
   .tag {
     font-size: 0.7rem;
     letter-spacing: 0.1em;
@@ -98,6 +112,47 @@
     font-size: 0.9rem;
     letter-spacing: 0.1em;
   }
+  /* 完整简介弹窗 */
+  #modal-mask {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 10;
+  }
+  #modal-mask.open { display: block; }
+  #modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(560px, 92vw);
+    max-height: 82vh;
+    overflow-y: auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem 2.2rem;
+    z-index: 11;
+    display: none;
+  }
+  #modal.open { display: block; }
+  #modal h3 {
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--brown);
+  }
+  #modal .intro { margin-top: 1.2rem; font-size: 0.92rem; line-height: 2; color: var(--ink); }
+  #modal .intro p { margin-bottom: 0.8rem; }
+  #modal .credits {
+    margin-top: 1.6rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--line);
+    font-size: 0.82rem;
+    line-height: 2;
+    color: var(--ink-soft);
+  }
+  #modal .credits strong { color: var(--ink); font-weight: normal; }
+  #modal .close-row { margin-top: 1.6rem; text-align: right; }
   footer {
     padding: 1.6rem 8vw;
     border-top: 1px solid var(--line);
@@ -129,11 +184,14 @@
       <div class="cover"></div>
       <div class="info">
         <h2>「我」的游戏</h2>
-        <p>勇者与魔王的故事。带领你的伙伴们,迎战四大天王与魔王本人。</p>
-        <div class="tags">
-          <span class="tag">RPG</span>
-          <span class="tag">像素风</span>
-          <span class="tag">网页游玩</span>
+        <p>很遗憾地告知打开这个游戏的玩家,“你”已经落入了这个无趣的RPG故事里。</p>
+        <div class="card-actions">
+          <button class="btn" id="more-btn" type="button">完整简介</button>
+          <div class="tags">
+            <span class="tag">RPG</span>
+            <span class="tag">像素风</span>
+            <span class="tag">网页游玩</span>
+          </div>
         </div>
       </div>
     </a>
@@ -144,11 +202,47 @@
   <span>© 2026 SinoKcil</span>
   <a href="https://github.com/SinoKcil">GitHub</a>
 </footer>
+
+<div id="modal-mask"></div>
+<div id="modal">
+  <h3>「我」的游戏 — 完整简介</h3>
+  <div class="intro">
+    <p>很遗憾地告知打开这个游戏的玩家,“你”已经落入了这个无趣的RPG故事里。</p>
+    <p>而通关的方式,就是无趣地从故事的一端走到另一端。</p>
+    <p>噢,忘记说明了,这是一个完全由文字组成的故事。所以想要前进,还需要把故事都补上。</p>
+    <p>调查一些文字,获得一些词语,补全一些句子。然后——</p>
+    <p>像无数故事里那样战胜魔王,掌控规则吧!</p>
+  </div>
+  <div class="credits">
+    <div><strong>策划:</strong>wuaosi,Kcil</div>
+    <div><strong>程序:</strong>Kcil,block_Spark</div>
+  </div>
+  <div class="close-row"><button class="btn" id="close-btn" type="button">关闭</button></div>
+</div>
+
 <script>
   // 手机浏览器自动指向移动版包
   if (/iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent)) {
     document.getElementById("game-link").href = "game-mobile/";
   }
+  // 完整简介弹窗
+  var mask = document.getElementById("modal-mask");
+  var modal = document.getElementById("modal");
+  function openModal(e) {
+    e.preventDefault(); e.stopPropagation();
+    mask.classList.add("open");
+    modal.classList.add("open");
+  }
+  function closeModal() {
+    mask.classList.remove("open");
+    modal.classList.remove("open");
+  }
+  document.getElementById("more-btn").addEventListener("click", openModal);
+  document.getElementById("close-btn").addEventListener("click", closeModal);
+  mask.addEventListener("click", closeModal);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+  });
 </script>
 </body>
 </html>
