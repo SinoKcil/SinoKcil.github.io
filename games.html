@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏 — SinoKcil</title>
+<meta name="description" content="SinoKcil 制作的游戏列表">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #8a8a8a;
+    --line: #d9d9d9;
+    --bg: #fafafa;
+    --cream: #E8DCC8;
+    --brown: #5C4025;
+    --brown-soft: #8A6B4A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8e8e8;
+      --ink-soft: #777;
+      --line: #333;
+      --bg: #111;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Georgia", "Songti SC", "SimSun", serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    width: min(900px, 92vw);
+    margin: 0 auto;
+    padding: 4rem 0 5rem;
+  }
+  h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+  }
+  .crumb {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .crumb a { color: inherit; text-decoration: none; }
+  .crumb a:hover { color: var(--ink); }
+  .game-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.6rem; }
+  .game-card {
+    display: flex;
+    gap: 1.6rem;
+    padding: 1.6rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .game-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .cover {
+    flex-shrink: 0;
+    width: 180px;
+    height: 120px;
+    background: var(--cream) url("game/TemplateData/pixel-battle.svg") no-repeat center / 130% auto;
+    image-rendering: pixelated;
+    border: 1px solid var(--brown-soft);
+  }
+  .info h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--brown);
+  }
+  .info p {
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 34em;
+  }
+  .tags { margin-top: 0.9rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--brown-soft);
+    border: 1px solid var(--brown-soft);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .empty {
+    margin-top: 3rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+  }
+  footer {
+    padding: 1.6rem 8vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+  }
+  footer a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  footer a:hover { color: var(--ink); }
+  @media (max-width: 560px) {
+    .game-card { flex-direction: column; }
+    .cover { width: 100%; height: 140px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>游戏</h1>
+  <div class="crumb"><a href="index.html">主页</a> / 游戏</div>
+  <div class="game-list">
+    <a class="game-card" id="game-link" href="game/">
+      <div class="cover"></div>
+      <div class="info">
+        <h2>「我」的游戏</h2>
+        <p>勇者与魔王的故事。带领你的伙伴们,迎战四大天王与魔王本人。</p>
+        <div class="tags">
+          <span class="tag">RPG</span>
+          <span class="tag">像素风</span>
+          <span class="tag">网页游玩</span>
+        </div>
+      </div>
+    </a>
+    <div class="empty">— 更多游戏制作中 —</div>
+  </div>
+</main>
+<footer>
+  <span>© 2026 SinoKcil</span>
+  <a href="https://github.com/SinoKcil">GitHub</a>
+</footer>
+<script>
+  // 手机浏览器自动指向移动版包
+  if (/iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent)) {
+    document.getElementById("game-link").href = "game-mobile/";
+  }
+</script>
+</body>
+</html>
