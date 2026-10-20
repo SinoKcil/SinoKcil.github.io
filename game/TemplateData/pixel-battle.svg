@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="160" viewBox="0 0 120 40">
+  <!-- 米色背景上的像素风:左 勇者+三伙伴,右 四天王+魔王 -->
+  <rect width="120" height="40" fill="none"/>
+
+  <!-- ===== 左侧:勇者 + 三个伙伴 ===== -->
+  <!-- 勇者 (有剑和盾, 最高) -->
+  <g fill="#6B4A2B">
+    <rect x="14" y="14" width="4" height="4"/> <!-- 头发/头盔 -->
+    <rect x="13" y="15" width="6" height="1"/>
+    <rect x="14" y="16" width="4" height="1"/>
+    <rect x="13" y="17" width="6" height="5"/> <!-- 身体 -->
+    <rect x="12" y="18" width="1" height="3"/> <!-- 左臂 -->
+    <rect x="19" y="18" width="1" height="3"/> <!-- 右臂 -->
+    <rect x="14" y="22" width="1" height="2"/> <!-- 左腿 -->
+    <rect x="17" y="22" width="1" height="2"/> <!-- 右腿 -->
+  </g>
+  <!-- 剑 (银色) -->
+  <g fill="#8A6B4A">
+    <rect x="21" y="10" width="1" height="6"/>
+    <rect x="20" y="16" width="3" height="1"/>
+  </g>
+  <!-- 盾 -->
+  <rect x="11" y="18" width="2" height="3" fill="#8A6B4A"/>
+
+  <!-- 伙伴1:法师 (尖帽) -->
+  <g fill="#7A5836">
+    <rect x="26" y="15" width="1" height="1"/>
+    <rect x="26" y="16" width="3" height="1"/>
+    <rect x="26" y="17" width="3" height="4"/>
+    <rect x="25" y="18" width="1" height="2"/>
+    <rect x="29" y="18" width="1" height="2"/>
+    <rect x="26" y="21" width="1" height="2"/>
+    <rect x="28" y="21" width="1" height="2"/>
+  </g>
+
+  <!-- 伙伴2:战士 (壮) -->
+  <g fill="#5C4025">
+    <rect x="34" y="14" width="4" height="4"/>
+    <rect x="33" y="15" width="6" height="1"/>
+    <rect x="33" y="17" width="6" height="5"/>
+    <rect x="32" y="18" width="1" height="3"/>
+    <rect x="39" y="18" width="1" height="3"/>
+    <rect x="34" y="22" width="1" height="2"/>
+    <rect x="37" y="22" width="1" height="2"/>
+  </g>
+
+  <!-- 伙伴3:盗贼 (小个, 兜帽) -->
+  <g fill="#8A6B4A">
+    <rect x="44" y="16" width="4" height="3"/>
+    <rect x="43" y="17" width="6" height="4"/>
+    <rect x="42" y="18" width="1" height="2"/>
+    <rect x="49" y="18" width="1" height="2"/>
+    <rect x="44" y="21" width="1" height="2"/>
+    <rect x="47" y="21" width="1" height="2"/>
+  </g>
+
+  <!-- ===== 对阵:中间 VS 分界 ===== -->
+  <g fill="#8A6B4A" opacity="0.35">
+    <rect x="57" y="8" width="1" height="24"/>
+  </g>
+  <g fill="#A08156" font-family="monospace" font-size="5">
+    <text x="56" y="14" text-anchor="middle">VS</text>
+  </g>
+
+  <!-- ===== 右侧:四大天王 + 魔王 ===== -->
+  <!-- 天王1 -->
+  <g fill="#4A351F">
+    <rect x="68" y="15" width="4" height="3"/>
+    <rect x="67" y="16" width="6" height="5"/>
+    <rect x="66" y="17" width="1" height="3"/>
+    <rect x="73" y="17" width="1" height="3"/>
+    <rect x="68" y="21" width="1" height="2"/>
+    <rect x="71" y="21" width="1" height="2"/>
+  </g>
+  <!-- 天王1 角 -->
+  <rect x="67" y="13" width="1" height="2" fill="#4A351F"/>
+  <rect x="72" y="13" width="1" height="2" fill="#4A351F"/>
+
+  <!-- 天王2 -->
+  <g fill="#4A351F">
+    <rect x="78" y="15" width="4" height="3"/>
+    <rect x="77" y="16" width="6" height="5"/>
+    <rect x="76" y="17" width="1" height="3"/>
+    <rect x="83" y="17" width="1" height="3"/>
+    <rect x="78" y="21" width="1" height="2"/>
+    <rect x="81" y="21" width="1" height="2"/>
+  </g>
+  <rect x="77" y="13" width="1" height="2" fill="#4A351F"/>
+  <rect x="82" y="13" width="1" height="2" fill="#4A351F"/>
+
+  <!-- 天王3 -->
+  <g fill="#4A351F">
+    <rect x="88" y="15" width="4" height="3"/>
+    <rect x="87" y="16" width="6" height="5"/>
+    <rect x="86" y="17" width="1" height="3"/>
+    <rect x="93" y="17" width="1" height="3"/>
+    <rect x="88" y="21" width="1" height="2"/>
+    <rect x="91" y="21" width="1" height="2"/>
+  </g>
+  <rect x="87" y="13" width="1" height="2" fill="#4A351F"/>
+  <rect x="92" y="13" width="1" height="2" fill="#4A351F"/>
+
+  <!-- 魔王 (最大, 居最右, 双角 + 披风) -->
+  <g fill="#3B2A18">
+    <!-- 双角 -->
+    <rect x="101" y="8" width="1" height="4"/>
+    <rect x="104" y="8" width="1" height="4"/>
+    <!-- 披风 -->
+    <rect x="99" y="16" width="10" height="7"/>
+    <!-- 头 -->
+    <rect x="102" y="12" width="4" height="4"/>
+    <!-- 身体 -->
+    <rect x="101" y="16" width="6" height="5"/>
+    <!-- 手臂 -->
+    <rect x="99" y="17" width="2" height="3"/>
+    <rect x="107" y="17" width="2" height="3"/>
+    <!-- 腿 -->
+    <rect x="101" y="21" width="2" height="2"/>
+    <rect x="105" y="21" width="2" height="2"/>
+  </g>
+  <!-- 魔王眼睛 (米色点) -->
+  <rect x="103" y="13" width="1" height="1" fill="#E8DCC8"/>
+  <rect x="105" y="13" width="1" height="1" fill="#E8DCC8"/>
+  <!-- 魔王武器:大剑 -->
+  <g fill="#6B4A2B">
+    <rect x="109" y="9" width="1" height="9"/>
+    <rect x="108" y="17" width="3" height="1"/>
+  </g>
+
+  <!-- 地面线 -->
+  <g fill="#8A6B4A" opacity="0.3">
+    <rect x="8" y="26" width="104" height="1"/>
+  </g>
+</svg>

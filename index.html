@@ -3,108 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SinoKcil</title>
-<meta name="description" content="SinoKcil 的个人主页 — 游戏与创作">
+<title>「我」的游戏 — SinoKcil</title>
+<meta name="description" content="SinoKcil 的游戏 — 勇者与魔王的故事">
+<link rel="icon" href="game/TemplateData/favicon.ico">
 <style>
-  :root {
-    --ink: #1a1a1a;
-    --ink-soft: #8a8a8a;
-    --line: #d9d9d9;
-    --bg: #fafafa;
+  @font-face {
+    font-family: "ZhengGeDianHei";
+    src: url("game/TemplateData/ZhengGeDianHei-16.ttf") format("truetype");
+    font-display: swap;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink: #e8e8e8;
-      --ink-soft: #777;
-      --line: #333;
-      --bg: #111;
-    }
+  :root {
+    --ink: #5C4025;
+    --ink-soft: #8A6B4A;
+    --bg: #E8DCC8;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: "Georgia", "Songti SC", "SimSun", serif;
+    font-family: "ZhengGeDianHei", "Microsoft YaHei", sans-serif;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
   }
   main {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 8vw;
+    align-items: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+  }
+  #battle {
+    width: min(480px, 90vw);
+    aspect-ratio: 3 / 1;
+    background: url("game/TemplateData/pixel-battle.svg") no-repeat center / contain;
+    image-rendering: pixelated;
   }
   h1 {
-    font-size: clamp(2.2rem, 6vw, 4rem);
-    font-weight: 400;
-    letter-spacing: 0.08em;
+    margin-top: 1.8rem;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: normal;
+    letter-spacing: 0.15em;
   }
-  .line {
-    width: 64px;
-    height: 1px;
-    background: var(--ink);
-    margin: 1.6rem 0;
-  }
-  p {
+  .sub {
+    margin-top: 0.6rem;
     color: var(--ink-soft);
-    font-size: 1rem;
-    line-height: 1.9;
-    max-width: 32em;
-  }
-  p + p { margin-top: 0.4rem; }
-  .soon {
-    margin-top: 2.4rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
     font-size: 0.9rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.2em;
+  }
+  #play {
+    margin-top: 2.2rem;
+    display: inline-block;
+    padding: 0.8rem 3.2rem;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1.15rem;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em; /* 平衡 letter-spacing */
+    transition: background 0.25s, color 0.25s;
+  }
+  #play:hover { background: var(--ink); color: var(--bg); }
+  .hint {
+    margin-top: 1rem;
+    font-size: 0.75rem;
     color: var(--ink-soft);
-  }
-  .soon::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border: 1px solid var(--ink-soft);
-    border-radius: 50%;
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+    letter-spacing: 0.1em;
   }
   footer {
-    padding: 1.6rem 8vw;
-    border-top: 1px solid var(--line);
+    padding: 1.2rem 8vw;
+    border-top: 1px solid rgba(138, 107, 74, 0.4);
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 0.1em;
     color: var(--ink-soft);
   }
   footer a {
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(138, 107, 74, 0.5);
     padding-bottom: 2px;
     transition: color 0.3s, border-color 0.3s;
   }
   footer a:hover { color: var(--ink); border-color: var(--ink); }
+  /* 两侧对阵小人装饰 (窗口足够宽时) */
+  .page-side { position: fixed; top: 0; bottom: 0; pointer-events: none; z-index: -1; }
+  .side-left { left: 0; width: 20vw;
+    background: url("game/TemplateData/side-heroes.svg") no-repeat center / min(100%, 260px) auto; }
+  .side-right { right: 0; width: 20vw;
+    background: url("game/TemplateData/side-demons.svg") no-repeat center / min(100%, 260px) auto; }
+  @media (max-width: 1100px) { .page-side { display: none; } }
 </style>
 </head>
 <body>
+<div class="page-side side-left"></div>
+<div class="page-side side-right"></div>
 <main>
-  <h1>SinoKcil</h1>
-  <div class="line"></div>
-  <p>在纸上画线，在代码里造世界。</p>
-  <p>这里将收录我的游戏与创作。</p>
-  <span class="soon">GAME — 正在制作中</span>
+  <div id="battle"></div>
+  <h1>「我」的游戏</h1>
+  <p class="sub">勇者与魔王的故事</p>
+  <a id="play" href="game/">进入游戏</a>
+  <p class="hint" id="hint"></p>
 </main>
 <footer>
   <span>© 2026 SinoKcil</span>
   <a href="https://github.com/SinoKcil">GitHub</a>
 </footer>
+<script>
+  // 按浏览器标识自动选择 PC / Mobile 入口
+  var isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent);
+  document.getElementById("play").href = isMobile ? "game-mobile/" : "game/";
+  document.getElementById("hint").textContent = isMobile
+    ? "已为你选择移动端版本"
+    : "已为你选择 PC 版本";
+</script>
 </body>
 </html>

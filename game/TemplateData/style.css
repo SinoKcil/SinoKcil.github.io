@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "ZhengGeDianHei";
+  src: url("ZhengGeDianHei-16.ttf") format("truetype");
+  font-display: swap;
+}
+
+body { padding: 0; margin: 0; background: #E8DCC8; }
+
+/* ===== 游戏画布左右两侧留白区:对阵小人 + 边框花纹 ===== */
+.page-side { position: fixed; top: 0; bottom: 0; pointer-events: none; z-index: -1; }
+
+/* 左侧勇者队 */
+.side-left { left: 0; width: calc(50vw - 806px);
+  background:
+    url('side-heroes.svg') no-repeat center / min(100%, 260px) auto; }
+
+/* 右侧魔王军 */
+.side-right { right: 0; width: calc(50vw - 806px);
+  background:
+    url('side-demons.svg') no-repeat center / min(100%, 260px) auto; }
+
+/* 两侧紧贴游戏画布的像素花纹边框 */
+#unity-container.unity-desktop::before,
+#unity-container.unity-desktop::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 6px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #8A6B4A 0px, #8A6B4A 8px,
+    #E8DCC8 8px, #E8DCC8 12px,
+    #6B4A2B 12px, #6B4A2B 20px,
+    #E8DCC8 20px, #E8DCC8 24px
+  );
+}
+#unity-container.unity-desktop::before { left: -10px; }
+#unity-container.unity-desktop::after { right: -10px; }
+
+/* 窗口两侧空白不足时隐藏装饰,花纹边框始终保留 */
+@media (max-width: 1720px) { .page-side { display: none; } }
+
+#unity-container { position: absolute }
+#unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
+#unity-container.unity-mobile { position: fixed; width: 100%; height: 100% }
+.unity-mobile #unity-fullscreen-container { width: 100%; height: 100% }
+#unity-fullscreen-container { position: relative; }
+#unity-canvas { position: absolute; width: 100%; height: 100%; background: #231F20 }
+#unity-loading-container { position: absolute; width: 100%; height: 100%; background: #E8DCC8; display: none; }
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 480px; max-width: 90vw; text-align: center; }
+#pixel-battle { width: 480px; max-width: 90vw; height: auto; aspect-ratio: 3 / 1; background: url('pixel-battle.svg') no-repeat center / contain; image-rendering: pixelated; }
+#game-title { margin-top: 18px; font-family: "ZhengGeDianHei", "Microsoft YaHei", sans-serif; font-size: 22px; letter-spacing: 0.15em; color: #5C4025; }
+#unity-progress-bar-empty { width: 300px; height: 14px; margin: 16px auto 0; border: 1px solid #8A6B4A; border-radius: 0; }
+#unity-progress-bar-full { width: 0%; height: 12px; background: #6B4A2B; transition: width 0.2s; }
+#unity-footer { position: relative; background: #E8DCC8; }
+.unity-mobile #unity-footer { display: none }
+#unity-logo-title-footer { float:left; width: 102px; height: 38px; background: url('unity-logo-title-footer.png') no-repeat center }
+#unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: "ZhengGeDianHei", "Microsoft YaHei", sans-serif; font-size: 16px; color: #5C4025 }
+#unity-fullscreen-button { cursor:pointer; float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
+#unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none; font-family: "ZhengGeDianHei", "Microsoft YaHei", sans-serif; }
